@@ -11,13 +11,17 @@
   // border-color: hsl(243, 100%, 62%);
 }
 
+.plan-card:hover {
+  border-color: hsl(243, 100%, 62%);
+}
+
 .slider-container {
   margin-top: 5rem;
-  margin-left: 2rem;
   margin-right: 2rem;
   background-color: hsl(229, 24%, 87%);
   border-radius: 12px;
   height: 3rem;
+  width: 100%;
 }
 
 .slider-content {
