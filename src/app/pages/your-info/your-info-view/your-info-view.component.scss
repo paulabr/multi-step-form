@@ -1,0 +1,27 @@
+.form-control {
+  padding-top: 1rem;
+  padding-right: 0.75rem;
+  padding-bottom: 1rem;
+  padding-left: 0.75rem;
+  border-radius: 12px;
+}
+
+.next-step {
+  float: right;
+  background-color: hsl(213, 96%, 18%);
+  color: white;
+  height: 50px;
+  width: 150px;
+  position: absolute;
+  bottom: 6rem;
+  right: 19%;
+}
+
+.form-control::placeholder {
+  font-weight: bold;
+  color: hsl(231, 11%, 63%);
+}
+
+.required-border {
+  border: 3px solid red;
+}

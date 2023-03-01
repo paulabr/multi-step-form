@@ -1,33 +1,48 @@
-<h1>Personal info</h1>
-<p class="text-secondary">
-  Please provide your name, email address and phone number.
-</p>
-<form>
-  <div class="mb-3">
-    <label for="nameInput" class="form-label">Name</label>
-    <input
-      type="text"
-      class="form-control"
-      id="nameInput"
-      aria-describedby="emailHelp"
-      size="50"
-    />
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input
-      type="email"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-    />
-    <div id="emailHelp" class="form-text">
-      We'll never share your email with anyone else.
+<div>
+  <h1 class="dark-blue"><b>Personal info</b></h1>
+  <h5 class="text-secondary">
+    Please provide your name, email address and phone number.
+  </h5>
+  <form [formGroup]="personalInfo" class="mt-5">
+    <div class="mb-4">
+      <label for="nameInput" class="form-label dark-blue"><b>Name</b></label>
+      <input
+        formControlName="name"
+        type="text"
+        class="form-control"
+        id="nameInput"
+        aria-describedby="emailHelp"
+        size="50"
+        placeholder="e.g. Stephen King"
+      />
     </div>
+    <div class="mb-4">
+      <label for="exampleInputEmail1" class="form-label dark-blue"
+        ><b>Email address</b></label
+      >
+      <input
+        formControlName="email"
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        placeholder="e.g. stephenking@lorem.com"
+      />
+    </div>
+    <div class="mb-4">
+      <label for="phoneNumber" class="form-label dark-blue"
+        ><b>Phone number</b></label
+      >
+      <input
+        formControlName="phone"
+        type="tel"
+        class="form-control"
+        id="phoneNumber"
+        placeholder="e.g. +1 234 567 890"
+      />
+    </div>
+  </form>
+  <div>
+    <button type="submit" class="btn next-step">Next step</button>
   </div>
-  <div class="mb-3">
-    <label for="phoneNumber" class="form-label">Phone number</label>
-    <input type="tel" class="form-control" id="phoneNumber" />
-  </div>
-  <button type="submit" class="btn btn-primary">Next step</button>
-</form>
+</div>
