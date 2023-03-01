@@ -1,0 +1,39 @@
+.card-img-custom {
+  width: 60px;
+  margin: 20px 0 50px 10px;
+}
+
+.plan-card {
+  width: 16rem;
+  height: 18rem;
+  border-radius: 15px;
+  cursor: pointer;
+  // border-color: hsl(243, 100%, 62%);
+}
+
+.slider-container {
+  margin-top: 5rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  background-color: hsl(229, 24%, 87%);
+  border-radius: 12px;
+  height: 3rem;
+}
+
+.slider-content {
+  margin: auto;
+}
+
+.form-check-input:checked {
+  background-color: hsl(213, 96%, 18%);
+  border-color: hsl(213, 96%, 18%);
+}
+
+.form-check-input {
+  background-color: hsl(213, 96%, 18%);
+  border-color: hsl(213, 96%, 18%);
+}
+
+.form-switch .form-check-input {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23ffff'/%3e%3c/svg%3e");
+}

@@ -1,1 +1,57 @@
-<p>select-plan-view works!</p>
+<div class="container">
+  <div>
+    <h1 class="dark-blue"><b>Select your plan</b></h1>
+    <h5 class="text-secondary">
+      You have the option of monthly or yearly billing.
+    </h5>
+  </div>
+  <div class="row mt-5 ms-2">
+    <div class="card me-5 plan-card">
+      <img
+        src="../../../../assets/icon-arcade.svg"
+        class="card-img-top card-img-custom"
+        alt="arcade-plan"
+      />
+      <div class="card-body">
+        <h5 class="card-title dark-blue">Arcade</h5>
+        <p class="card-text text-secondary">$9/mo</p>
+      </div>
+    </div>
+    <div class="card me-5 plan-card">
+      <img
+        src="../../../../assets/icon-advanced.svg"
+        class="card-img-top card-img-custom"
+        alt="advanced-plan"
+      />
+      <div class="card-body">
+        <h5 class="card-title dark-blue">Advanced</h5>
+        <p class="card-text text-secondary">$12/mo</p>
+      </div>
+    </div>
+    <div class="card plan-card">
+      <img
+        src="../../../../assets/icon-pro.svg"
+        class="card-img-top card-img-custom"
+        alt="pro-plan"
+      />
+      <div class="card-body">
+        <h5 class="card-title dark-blue">Pro</h5>
+        <p class="card-text text-secondary">$15/mo</p>
+      </div>
+    </div>
+  </div>
+  <div class="slider-container d-flex">
+    <div class="slider-content d-flex">
+      <div class="me-5 dark-blue">Monthly</div>
+      <div class="form-check form-switch checkbox-slider">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="flexSwitchCheckDefault"
+        />
+      </div>
+      <div class="ms-5 dark-blue">Yearly</div>
+    </div>
+  </div>
+</div>
