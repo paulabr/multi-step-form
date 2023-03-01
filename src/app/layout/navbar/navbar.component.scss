@@ -3,9 +3,8 @@
 }
 
 .nav-content {
-  min-height: 770px;
-  min-width: 400px;
+  height: 97%;
   background-image: url(../../../assets/bg-sidebar-desktop.svg);
   background-repeat: no-repeat, no-repeat;
-  background-size: 374px 768px;
+  background-size: contain;
 }
