@@ -27,22 +27,15 @@ body {
 }
 
 .next-step {
-  float: right;
   background-color: hsl(213, 96%, 18%);
   color: white;
   height: 50px;
   width: 150px;
-  position: absolute;
-  bottom: 6rem;
-  right: 19%;
 }
 
 .go-back {
-  float: right;
   color: hsl(213, 96%, 18%);
   height: 50px;
   width: 150px;
-  position: absolute;
-  bottom: 6rem;
   font-weight: bold;
 }
