@@ -4,11 +4,10 @@
 }
 
 .plan-card {
-  width: 16rem;
+  // width: 16rem;
   height: 18rem;
   border-radius: 15px;
   cursor: pointer;
-  // border-color: hsl(243, 100%, 62%);
 }
 
 .plan-card:hover {
@@ -17,7 +16,6 @@
 
 .slider-container {
   margin-top: 5rem;
-  margin-right: 2rem;
   background-color: hsl(229, 24%, 87%);
   border-radius: 12px;
   height: 3rem;

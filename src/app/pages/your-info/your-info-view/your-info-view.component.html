@@ -6,6 +6,12 @@
   <form [formGroup]="personalInfo" class="mt-5">
     <div class="mb-4">
       <label for="nameInput" class="form-label dark-blue"><b>Name</b></label>
+      <div
+        *ngIf="name.touched && name.getError('required')"
+        style="float: right"
+      >
+        <p class="text-danger ms-1 mt-1">*Name cannot be empty</p>
+      </div>
       <input
         formControlName="name"
         type="text"
@@ -20,6 +26,18 @@
       <label for="exampleInputEmail1" class="form-label dark-blue"
         ><b>Email address</b></label
       >
+      <div
+        *ngIf="email.touched && email.getError('required')"
+        style="float: right"
+      >
+        <p class="text-danger ms-1 mt-1">*Email cannot be empty</p>
+      </div>
+      <div
+        *ngIf="email.touched && email.getError('pattern')"
+        style="float: right"
+      >
+        <p class="text-danger ms-1 mt-1">*Email is not in the correct format</p>
+      </div>
       <input
         formControlName="email"
         type="email"
@@ -33,6 +51,20 @@
       <label for="phoneNumber" class="form-label dark-blue"
         ><b>Phone number</b></label
       >
+      <div
+        *ngIf="phone.touched && phone.getError('required')"
+        style="float: right"
+      >
+        <p class="text-danger ms-1 mt-1">*Phone number cannot be empty</p>
+      </div>
+      <div
+        *ngIf="phone.touched && phone.getError('pattern')"
+        style="float: right"
+      >
+        <p class="text-danger ms-1 mt-1">
+          *Phone number is not in the correct format
+        </p>
+      </div>
       <input
         formControlName="phone"
         type="tel"
@@ -42,5 +74,14 @@
       />
     </div>
   </form>
-  <button type="submit" class="btn next-step mt-auto ms-auto">Next step</button>
+  <div *ngIf="invalidForm">
+    <p class="text-danger ms-1 mt-1">*Form cannot be empty</p>
+  </div>
+  <button
+    type="submit"
+    class="btn next-step mt-auto ms-auto"
+    (click)="goToPlan()"
+  >
+    Next step
+  </button>
 </div>
