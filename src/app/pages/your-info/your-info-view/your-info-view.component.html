@@ -6,16 +6,16 @@
   <form [formGroup]="personalInfo" class="mt-5">
     <div class="mb-4">
       <label for="nameInput" class="form-label dark-blue"><b>Name</b></label>
-      <div
-        *ngIf="name.touched && name.getError('required')"
-        style="float: right"
-      >
-        <p class="text-danger ms-1 mt-1">*Name cannot be empty</p>
+      <div *ngIf="name.getError('empty')" style="float: right">
+        <p class="text-danger ms-1 mt-1">Name cannot be empty</p>
       </div>
       <input
         formControlName="name"
         type="text"
         class="form-control"
+        [ngClass]="{
+          'invalid-control': name.getError('empty')
+        }"
         id="nameInput"
         aria-describedby="emailHelp"
         size="50"
@@ -26,22 +26,19 @@
       <label for="exampleInputEmail1" class="form-label dark-blue"
         ><b>Email address</b></label
       >
-      <div
-        *ngIf="email.touched && email.getError('required')"
-        style="float: right"
-      >
-        <p class="text-danger ms-1 mt-1">*Email cannot be empty</p>
+      <div *ngIf="email.getError('empty')" style="float: right">
+        <p class="text-danger ms-1 mt-1">Email cannot be empty</p>
       </div>
-      <div
-        *ngIf="email.touched && email.getError('pattern')"
-        style="float: right"
-      >
-        <p class="text-danger ms-1 mt-1">*Email is not in the correct format</p>
+      <div *ngIf="email.getError('format')" style="float: right">
+        <p class="text-danger ms-1 mt-1">Email is not in the correct format</p>
       </div>
       <input
         formControlName="email"
         type="email"
         class="form-control"
+        [ngClass]="{
+          'invalid-control': email.getError('empty') || email.getError('format')
+        }"
         id="exampleInputEmail1"
         aria-describedby="emailHelp"
         placeholder="e.g. stephenking@lorem.com"
@@ -51,32 +48,26 @@
       <label for="phoneNumber" class="form-label dark-blue"
         ><b>Phone number</b></label
       >
-      <div
-        *ngIf="phone.touched && phone.getError('required')"
-        style="float: right"
-      >
-        <p class="text-danger ms-1 mt-1">*Phone number cannot be empty</p>
+      <div *ngIf="phone.getError('empty')" style="float: right">
+        <p class="text-danger ms-1 mt-1">Phone number cannot be empty</p>
       </div>
-      <div
-        *ngIf="phone.touched && phone.getError('pattern')"
-        style="float: right"
-      >
+      <div *ngIf="phone.getError('format')" style="float: right">
         <p class="text-danger ms-1 mt-1">
-          *Phone number is not in the correct format
+          Phone number is not in the correct format
         </p>
       </div>
       <input
         formControlName="phone"
         type="tel"
         class="form-control"
+        [ngClass]="{
+          'invalid-control': phone.getError('empty') || phone.getError('format')
+        }"
         id="phoneNumber"
         placeholder="e.g. +1 234 567 890"
       />
     </div>
   </form>
-  <div *ngIf="invalidForm">
-    <p class="text-danger ms-1 mt-1">*Form cannot be empty</p>
-  </div>
   <button
     type="submit"
     class="btn next-step mt-auto ms-auto"

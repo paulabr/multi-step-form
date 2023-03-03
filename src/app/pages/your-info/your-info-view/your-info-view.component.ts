@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
+import { FormControl, FormGroup } from "@angular/forms";
+import { NavigationService } from "src/app/services/navigation.service";
 
 @Component({
   selector: "app-your-info-view",
@@ -8,19 +8,13 @@ import { Router } from "@angular/router";
   styleUrls: ["./your-info-view.component.scss"],
 })
 export class YourInfoViewComponent implements OnInit {
-  invalidForm = false;
-  constructor(private router: Router) {}
-  personalInfo = new FormGroup({
-    name: new FormControl("", [Validators.required]),
-    email: new FormControl("", [
-      Validators.required,
-      Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"),
-    ]),
-    phone: new FormControl("", [
-      Validators.required,
-      Validators.pattern("[- +()0-9]+"),
-    ]),
-  });
+  personalInfo: FormGroup;
+
+  constructor(private navigationService: NavigationService) {}
+
+  ngOnInit(): void {
+    this.personalInfo = this.navigationService.personalInfo;
+  }
 
   get name(): FormControl {
     return this.personalInfo.get("name") as FormControl;
@@ -34,19 +28,7 @@ export class YourInfoViewComponent implements OnInit {
     return this.personalInfo.get("phone") as FormControl;
   }
 
-  ngOnInit(): void {
-    this.personalInfo.valueChanges.subscribe((val) => {
-      if (val) {
-        this.invalidForm = false;
-      }
-    });
-  }
-
   goToPlan() {
-    if (this.personalInfo.valid) {
-      this.router.navigate(["/plan"]);
-    } else {
-      this.invalidForm = true;
-    }
+    this.navigationService.nextStep();
   }
 }

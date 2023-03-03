@@ -7,7 +7,7 @@
           class="btn-check"
           name="btnradio"
           id="btnradio1"
-          autocomplete="off"
+          autocomplete="on"
           [checked]="router.url === routes.info"
         />
         <label class="btn btn-outline-light round-button mt-1" for="btnradio1"
@@ -21,7 +21,7 @@
     </div>
 
     <div class="d-flex">
-      <div routerLink="{{ routes.plan }}" class="mt-5 ms-3">
+      <div (click)="navigateToPlan()" class="mt-5 ms-3">
         <input
           type="radio"
           class="btn-check"
@@ -29,6 +29,7 @@
           id="btnradio2"
           autocomplete="off"
           [checked]="router.url === routes.plan"
+          [disabled]="!navigationService.personalInfo.valid"
         />
         <label class="btn btn-outline-light round-button mt-1" for="btnradio2"
           >2</label
