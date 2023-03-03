@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormArray, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
 @Injectable({
@@ -22,9 +22,10 @@ export class NavigationService {
     }),
     plan: new FormGroup({
       planType: new FormControl("", [Validators.required]),
+      planPrice: new FormControl("", [Validators.required]),
       yearlyPlan: new FormControl(true),
     }),
-    addOns: new FormControl([], [Validators.required]),
+    addOns: new FormArray([], [Validators.required]),
   });
 
   get personalInfo(): FormGroup {
@@ -35,8 +36,8 @@ export class NavigationService {
     return this.allSteps.get("plan") as FormGroup;
   }
 
-  get addOns(): FormControl {
-    return this.allSteps.get("addOns") as FormControl;
+  get addOns(): FormArray {
+    return this.allSteps.get("addOns") as FormArray;
   }
 
   navigateToPlan() {

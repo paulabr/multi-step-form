@@ -11,32 +11,35 @@
       <div class="row">
         <div class="col-10 d-flex">
           <div>
-            <h5 class="card-title dark-blue"><b>Arcade (Monthly)</b></h5>
+            <h5 class="card-title dark-blue">
+              <b
+                >{{ planType | titlecase }}
+                {{ yearlyPlan ? "(Yearly)" : "(Monthly)" }}</b
+              >
+            </h5>
             <p class="card-text text-secondary">change</p>
           </div>
         </div>
 
-        <div class="mt-3 col-2 price"><b>+$9/mo</b></div>
+        <div class="mt-3 col-2 price">
+          <b>${{ planPrice }}/mo</b>
+        </div>
       </div>
       <hr class="hr" />
-      <div class="row">
+      <div *ngFor="let item of addOns.value" class="row">
         <div class="col-10 d-flex">
-          <div>
-            <p class="card-title text-secondary">Online service</p>
-            <p class="card-text text-secondary">Larger storage</p>
+          <div class="card-title text-secondary">
+            {{ item.addOn | titlecase }}
           </div>
         </div>
-        <div class="col-2">
-          <div class="price">+$9/mo</div>
-          <div class="price">+$9/mo</div>
-        </div>
+        <div class="col-2 price">{{ item.price }}</div>
       </div>
     </div>
   </div>
 
   <div class="row mt-5">
-    <div class="col-10 text-secondary">Total (per month)</div>
-    <div class="col-2 text-secondary">+$12/mo</div>
+    <div class="col-10 text-secondary ps-3">Total (per month)</div>
+    <div class="col-2 text-secondary">+${{ totalPrice }}/mo</div>
   </div>
 
   <div class="mt-auto d-flex">

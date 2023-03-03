@@ -6,7 +6,7 @@
     </h5>
   </div>
   <div class="row mt-5 w-100">
-    <div class="col-4" (click)="choosePlan(typeOfPlan.Arcade, 'card1')">
+    <div class="col-4" (click)="choosePlan(type.Arcade, price.Arcade, 'card1')">
       <div id="card1" class="card plan-card">
         <img
           src="../../../../assets/icon-arcade.svg"
@@ -14,12 +14,17 @@
           alt="arcade-plan"
         />
         <div class="card-body">
-          <h5 class="card-title dark-blue">Arcade</h5>
-          <p class="card-text text-secondary">$9/mo</p>
+          <h5 class="card-title dark-blue">
+            {{ type.Arcade | titlecase }}
+          </h5>
+          <p class="card-text text-secondary">${{ price.Arcade }}/mo</p>
         </div>
       </div>
     </div>
-    <div class="col-4" (click)="choosePlan(typeOfPlan.Advanced, 'card2')">
+    <div
+      class="col-4"
+      (click)="choosePlan(type.Advanced, price.Advanced, 'card2')"
+    >
       <div id="card2" class="card plan-card">
         <img
           src="../../../../assets/icon-advanced.svg"
@@ -27,12 +32,12 @@
           alt="advanced-plan"
         />
         <div class="card-body">
-          <h5 class="card-title dark-blue">Advanced</h5>
-          <p class="card-text text-secondary">$12/mo</p>
+          <h5 class="card-title dark-blue">{{ type.Advanced | titlecase }}</h5>
+          <p class="card-text text-secondary">${{ price.Advanced }}/mo</p>
         </div>
       </div>
     </div>
-    <div class="col-4 pe-0" (click)="choosePlan(typeOfPlan.Pro, 'card3')">
+    <div class="col-4 pe-0" (click)="choosePlan(type.Pro, price.Pro, 'card3')">
       <div id="card3" class="card plan-card">
         <img
           src="../../../../assets/icon-pro.svg"
@@ -40,8 +45,8 @@
           alt="pro-plan"
         />
         <div class="card-body">
-          <h5 class="card-title dark-blue">Pro</h5>
-          <p class="card-text text-secondary">$15/mo</p>
+          <h5 class="card-title dark-blue">{{ type.Pro | titlecase }}</h5>
+          <p class="card-text text-secondary">${{ price.Pro }}/mo</p>
         </div>
       </div>
     </div>

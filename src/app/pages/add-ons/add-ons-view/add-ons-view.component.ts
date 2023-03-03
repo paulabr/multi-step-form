@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { FormArray, FormControl, FormGroup } from "@angular/forms";
 import { NavigationService } from "src/app/services/navigation.service";
 
 @Component({
@@ -8,7 +8,7 @@ import { NavigationService } from "src/app/services/navigation.service";
   styleUrls: ["./add-ons-view.component.scss"],
 })
 export class AddOnsViewComponent implements OnInit {
-  addOns: FormControl;
+  addOns: FormArray;
   constructor(private navigationService: NavigationService) {}
   ngOnInit(): void {
     this.addOns = this.navigationService.addOns;
@@ -21,9 +21,19 @@ export class AddOnsViewComponent implements OnInit {
     const options = checkboxes
       .filter((checkbox: HTMLInputElement) => checkbox.checked)
       .map((el: HTMLInputElement) => {
-        return el.value;
+        return {
+          element: el.value,
+          price: el.labels[0].textContent,
+        };
       });
-    this.addOns.setValue(options);
+    options.forEach((option) => {
+      this.addOns.push(
+        new FormGroup({
+          addOn: new FormControl(option.element),
+          price: new FormControl(parseInt(option.price.replace(/[^0-9]/g, ""))),
+        })
+      );
+    });
     this.navigationService.navigateToSummary();
   }
 }
