@@ -20,7 +20,7 @@ export class NavbarComponent {
     public navigationService: NavigationService
   ) {}
 
-  navigateToPlan() {
-    this.navigationService.nextStep();
+  goToPlan() {
+    this.navigationService.navigateToPlan();
   }
 }

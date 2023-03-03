@@ -29,6 +29,6 @@ export class YourInfoViewComponent implements OnInit {
   }
 
   goToPlan() {
-    this.navigationService.nextStep();
+    this.navigationService.navigateToPlan();
   }
 }

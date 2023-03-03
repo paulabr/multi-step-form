@@ -1,17 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
 
-import { SelectPlanRoutingModule } from './select-plan-routing.module';
-import { SelectPlanViewComponent } from './select-plan-view/select-plan-view.component';
-
+import { ReactiveFormsModule } from "@angular/forms";
+import { SelectPlanRoutingModule } from "./select-plan-routing.module";
+import { SelectPlanViewComponent } from "./select-plan-view/select-plan-view.component";
 
 @NgModule({
-  declarations: [
-    SelectPlanViewComponent
-  ],
-  imports: [
-    CommonModule,
-    SelectPlanRoutingModule
-  ]
+  declarations: [SelectPlanViewComponent],
+  imports: [CommonModule, SelectPlanRoutingModule, ReactiveFormsModule],
 })
-export class SelectPlanModule { }
+export class SelectPlanModule {}

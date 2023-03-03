@@ -6,8 +6,12 @@
   <form [formGroup]="personalInfo" class="mt-5">
     <div class="mb-4">
       <label for="nameInput" class="form-label dark-blue"><b>Name</b></label>
-      <div *ngIf="name.getError('empty')" style="float: right">
-        <p class="text-danger ms-1 mt-1">Name cannot be empty</p>
+      <div
+        *ngIf="name.getError('empty')"
+        class="text-danger ms-1 mt-1"
+        style="float: right"
+      >
+        Name cannot be empty
       </div>
       <input
         formControlName="name"
@@ -26,11 +30,19 @@
       <label for="exampleInputEmail1" class="form-label dark-blue"
         ><b>Email address</b></label
       >
-      <div *ngIf="email.getError('empty')" style="float: right">
-        <p class="text-danger ms-1 mt-1">Email cannot be empty</p>
+      <div
+        *ngIf="email.getError('empty')"
+        style="float: right"
+        class="text-danger ms-1 mt-1"
+      >
+        Email cannot be empty
       </div>
-      <div *ngIf="email.getError('format')" style="float: right">
-        <p class="text-danger ms-1 mt-1">Email is not in the correct format</p>
+      <div
+        *ngIf="email.getError('format')"
+        style="float: right"
+        class="text-danger ms-1 mt-1"
+      >
+        Email is not in the correct format
       </div>
       <input
         formControlName="email"
@@ -48,13 +60,19 @@
       <label for="phoneNumber" class="form-label dark-blue"
         ><b>Phone number</b></label
       >
-      <div *ngIf="phone.getError('empty')" style="float: right">
-        <p class="text-danger ms-1 mt-1">Phone number cannot be empty</p>
+      <div
+        *ngIf="phone.getError('empty')"
+        style="float: right"
+        class="text-danger ms-1 mt-1"
+      >
+        Phone number cannot be empty
       </div>
-      <div *ngIf="phone.getError('format')" style="float: right">
-        <p class="text-danger ms-1 mt-1">
-          Phone number is not in the correct format
-        </p>
+      <div
+        *ngIf="phone.getError('format')"
+        style="float: right"
+        class="text-danger ms-1 mt-1"
+      >
+        Phone number is not in the correct format
       </div>
       <input
         formControlName="phone"
