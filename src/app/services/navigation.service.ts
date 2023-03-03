@@ -68,6 +68,14 @@ export class NavigationService {
     }
   }
 
+  navigateToSummary() {
+    if (this.addOns.valid) {
+      this.router.navigate(["/summary"]);
+    } else {
+      this.addOns.setErrors({ empty: true });
+    }
+  }
+
   private findInvalidControls(subGroup: FormGroup) {
     const invalid = [];
     const controls = subGroup.controls;

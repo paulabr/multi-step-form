@@ -1,17 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
 
-import { AddOnsRoutingModule } from './add-ons-routing.module';
-import { AddOnsViewComponent } from './add-ons-view/add-ons-view.component';
-
+import { ReactiveFormsModule } from "@angular/forms";
+import { AddOnsRoutingModule } from "./add-ons-routing.module";
+import { AddOnsViewComponent } from "./add-ons-view/add-ons-view.component";
 
 @NgModule({
-  declarations: [
-    AddOnsViewComponent
-  ],
-  imports: [
-    CommonModule,
-    AddOnsRoutingModule
-  ]
+  declarations: [AddOnsViewComponent],
+  imports: [CommonModule, AddOnsRoutingModule, ReactiveFormsModule],
 })
-export class AddOnsModule { }
+export class AddOnsModule {}
