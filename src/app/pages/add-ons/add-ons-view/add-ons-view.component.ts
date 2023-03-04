@@ -8,10 +8,14 @@ import { NavigationService } from "src/app/services/navigation.service";
   styleUrls: ["./add-ons-view.component.scss"],
 })
 export class AddOnsViewComponent implements OnInit {
-  addOns: FormArray;
+  allSteps: FormGroup;
+
+  get addOns(): FormArray {
+    return this.navigationService.allSteps.get("addOns") as FormArray;
+  }
   constructor(private navigationService: NavigationService) {}
   ngOnInit(): void {
-    this.addOns = this.navigationService.addOns;
+    this.allSteps = this.navigationService.allSteps;
   }
 
   goToSummary() {
@@ -26,14 +30,17 @@ export class AddOnsViewComponent implements OnInit {
           price: el.labels[0].textContent,
         };
       });
-    options.forEach((option) => {
-      this.addOns.push(
-        new FormGroup({
-          addOn: new FormControl(option.element),
-          price: new FormControl(parseInt(option.price.replace(/[^0-9]/g, ""))),
-        })
-      );
-    });
+    const optionValues: FormArray = new FormArray([
+      ...options.map(
+        (item) =>
+          new FormGroup({
+            addOn: new FormControl(item.element),
+            price: new FormControl(parseInt(item.price.replace(/[^0-9]/g, ""))),
+          })
+      ),
+    ]);
+    debugger;
+    this.allSteps.setControl("addOns", optionValues);
     this.navigationService.navigateToSummary();
   }
 }
