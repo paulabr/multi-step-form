@@ -23,7 +23,7 @@ export class NavigationService {
     plan: new FormGroup({
       planType: new FormControl("", [Validators.required]),
       planPrice: new FormControl("", [Validators.required]),
-      yearlyPlan: new FormControl(true),
+      yearlyPlan: new FormControl(false),
     }),
     addOns: new FormArray([], [Validators.required]),
   });

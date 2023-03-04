@@ -42,7 +42,7 @@
     </div>
 
     <div class="d-flex">
-      <div routerLink="{{ routes.addons }}" class="mt-5 ms-3">
+      <div (click)="goToAddOns()" class="mt-5 ms-3">
         <input
           type="radio"
           class="btn-check"
@@ -50,6 +50,7 @@
           id="btnradio3"
           autocomplete="off"
           [checked]="router.url === routes.addons"
+          [disabled]="!navigationService.plan.valid"
         />
         <label class="btn btn-outline-light round-button mt-1" for="btnradio3"
           >3</label
@@ -62,7 +63,7 @@
     </div>
 
     <div class="d-flex">
-      <div routerLink="{{ routes.summary }}" class="mt-5 ms-3">
+      <div (click)="goToSummary()" class="mt-5 ms-3">
         <input
           type="radio"
           class="btn-check"
@@ -70,6 +71,7 @@
           id="btnradio4"
           autocomplete="off"
           [checked]="router.url === routes.summary"
+          [disabled]="navigationService.addOns.value.length === 0"
         />
         <label class="btn btn-outline-light round-button mt-1" for="btnradio4"
           >4</label

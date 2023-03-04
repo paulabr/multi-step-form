@@ -13,6 +13,10 @@ export class AddOnsViewComponent implements OnInit {
   get addOns(): FormArray {
     return this.navigationService.allSteps.get("addOns") as FormArray;
   }
+  get yearlyPlan(): FormControl {
+    return this.navigationService.plan.get("yearlyPlan") as FormControl;
+  }
+
   constructor(private navigationService: NavigationService) {}
   ngOnInit(): void {
     this.allSteps = this.navigationService.allSteps;
@@ -39,7 +43,6 @@ export class AddOnsViewComponent implements OnInit {
           })
       ),
     ]);
-    debugger;
     this.allSteps.setControl("addOns", optionValues);
     this.navigationService.navigateToSummary();
   }

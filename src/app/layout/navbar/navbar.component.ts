@@ -23,4 +23,12 @@ export class NavbarComponent {
   goToPlan() {
     this.navigationService.navigateToPlan();
   }
+
+  goToAddOns() {
+    this.navigationService.navigateToAddOns();
+  }
+
+  goToSummary() {
+    this.navigationService.navigateToSummary();
+  }
 }

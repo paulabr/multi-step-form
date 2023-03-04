@@ -25,8 +25,17 @@
                 </p>
               </div>
             </div>
-            <label for="flexCheckDefault1" class="mt-3 col-2 price"
+            <label
+              *ngIf="!yearlyPlan.value"
+              for="flexCheckDefault1"
+              class="mt-3 col-2 price"
               ><b>+$1/mo</b></label
+            >
+            <label
+              *ngIf="yearlyPlan.value"
+              for="flexCheckDefault1"
+              class="mt-3 col-2 price"
+              ><b>+$10/yr</b></label
             >
           </div>
         </div>
@@ -50,8 +59,17 @@
               </div>
             </div>
 
-            <label for="flexCheckDefault2" class="mt-3 col-2 price"
+            <label
+              *ngIf="!yearlyPlan.value"
+              for="flexCheckDefault2"
+              class="mt-3 col-2 price"
               ><b>+$2/mo</b></label
+            >
+            <label
+              *ngIf="yearlyPlan.value"
+              for="flexCheckDefault2"
+              class="mt-3 col-2 price"
+              ><b>+$20/yr</b></label
             >
           </div>
         </div>
@@ -79,8 +97,17 @@
               </div>
             </div>
 
-            <label for="flexCheckDefault3" class="mt-3 col-2 price"
+            <label
+              *ngIf="!yearlyPlan.value"
+              for="flexCheckDefault3"
+              class="mt-3 col-2 price"
               ><b>+$2/mo</b></label
+            >
+            <label
+              *ngIf="yearlyPlan.value"
+              for="flexCheckDefault3"
+              class="mt-3 col-2 price"
+              ><b>+$20/yr</b></label
             >
           </div>
         </div>

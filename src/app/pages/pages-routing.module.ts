@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { RouteGuardService } from "../services/route-guard.service";
 
 const routes: Routes = [
   {
@@ -9,6 +10,7 @@ const routes: Routes = [
   },
   {
     path: "plan",
+    canActivate: [RouteGuardService],
     loadChildren: () =>
       import("./select-plan/select-plan.module").then(
         (m) => m.SelectPlanModule
@@ -16,11 +18,13 @@ const routes: Routes = [
   },
   {
     path: "add-ons",
+    canActivate: [RouteGuardService],
     loadChildren: () =>
       import("./add-ons/add-ons.module").then((m) => m.AddOnsModule),
   },
   {
     path: "summary",
+    canActivate: [RouteGuardService],
     loadChildren: () =>
       import("./summary/summary.module").then((m) => m.SummaryModule),
   },

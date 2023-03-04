@@ -2,15 +2,18 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { NavigationService } from "src/app/services/navigation.service";
 enum Type {
-  Arcade = "arcade",
-  Advanced = "advanced",
-  Pro = "pro",
+  Arcade = "Arcade",
+  Advanced = "Advanced",
+  Pro = "Pro",
 }
 
 enum Price {
   Arcade = 9,
   Advanced = 12,
   Pro = 15,
+  ArcadeYearly = 90,
+  AdvancedYearly = 120,
+  ProYearly = 150,
 }
 @Component({
   selector: "app-select-plan-view",
@@ -39,10 +42,15 @@ export class SelectPlanViewComponent implements OnInit {
     return this.plan.get("yearlyPlan") as FormControl;
   }
 
-  choosePlan(planType: Type, price: Price, id: string) {
+  choosePlan(planType: Type, id: string) {
     this.selectCard(id);
     this.planType.patchValue(planType);
-    this.planPrice.patchValue(price);
+    if (this.yearlyPlan.value) {
+      const price = Price[`${planType}Yearly`];
+      this.planPrice.patchValue(price);
+    } else {
+      this.planPrice.patchValue(Price[planType]);
+    }
   }
 
   private selectCard(id: string) {
