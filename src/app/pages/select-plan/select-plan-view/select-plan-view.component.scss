@@ -1,18 +1,3 @@
-.card-img-custom {
-  width: 60px;
-  margin: 20px 0 50px 10px;
-}
-
-.plan-card {
-  height: 18rem;
-  border-radius: 15px;
-  cursor: pointer;
-}
-
-.plan-card:hover {
-  border-color: hsl(243, 100%, 62%);
-}
-
 .slider-container {
   margin-top: 5rem;
   background-color: hsl(229, 24%, 87%);
@@ -37,8 +22,4 @@
 
 .form-switch .form-check-input {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23ffff'/%3e%3c/svg%3e");
-}
-
-.selected-card {
-  border-color: hsl(243, 100%, 62%);
 }

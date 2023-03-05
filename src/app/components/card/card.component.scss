@@ -1,0 +1,18 @@
+.card-img-custom {
+  width: 60px;
+  margin: 20px 0 50px 10px;
+}
+
+.plan-card {
+  height: 18rem;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.plan-card:hover {
+  border-color: hsl(243, 100%, 62%);
+}
+
+.selected-card {
+  border-color: hsl(243, 100%, 62%);
+}

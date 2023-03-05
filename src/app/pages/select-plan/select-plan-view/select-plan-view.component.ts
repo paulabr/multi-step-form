@@ -1,20 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { NavigationService } from "src/app/services/navigation.service";
-enum Type {
-  Arcade = "Arcade",
-  Advanced = "Advanced",
-  Pro = "Pro",
-}
+import { CardImage } from "../../../components/card/card-image.enum";
+import { PlanName } from "../plan-name.enum";
+import { PlanPrice } from "../plan-price.enum";
 
-enum Price {
-  Arcade = 9,
-  Advanced = 12,
-  Pro = 15,
-  ArcadeYearly = 90,
-  AdvancedYearly = 120,
-  ProYearly = 150,
-}
 @Component({
   selector: "app-select-plan-view",
   templateUrl: "./select-plan-view.component.html",
@@ -22,8 +12,9 @@ enum Price {
 })
 export class SelectPlanViewComponent implements OnInit {
   plan: FormGroup;
-  type = Type;
-  price = Price;
+  planNames = PlanName;
+  price = PlanPrice;
+  imageSrc = CardImage;
   constructor(private navigationService: NavigationService) {}
 
   ngOnInit(): void {
@@ -42,15 +33,15 @@ export class SelectPlanViewComponent implements OnInit {
     return this.plan.get("yearlyPlan") as FormControl;
   }
 
-  choosePlan(planType: Type) {
-    this.planType.patchValue(planType);
-    if (this.yearlyPlan.value) {
-      const price = Price[`${planType}Yearly`];
-      this.planPrice.patchValue(price);
-    } else {
-      this.planPrice.patchValue(Price[planType]);
-    }
-  }
+  // choosePlan(planType: Type) {
+  //   this.planType.patchValue(planType);
+  //   if (this.yearlyPlan.value) {
+  //     const price = Price[`${planType}Yearly`];
+  //     this.planPrice.patchValue(price);
+  //   } else {
+  //     this.planPrice.patchValue(Price[planType]);
+  //   }
+  // }
 
   goToAddOns() {
     this.navigationService.navigateToAddOns();

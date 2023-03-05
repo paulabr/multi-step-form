@@ -6,107 +6,17 @@
     </h5>
   </div>
   <div class="row mt-5 w-100">
-    <div class="col-4" (click)="choosePlan(type.Arcade)">
-      <div
-        id="card1"
-        class="card plan-card"
-        [ngClass]="{
-          'selected-card': planType.value === type.Arcade
-        }"
-      >
-        <img
-          src="../../../../assets/icon-arcade.svg"
-          class="card-img-top card-img-custom"
-          alt="arcade-plan"
-        />
-        <div class="card-body d-flex h-100">
-          <div *ngIf="!yearlyPlan.value" class="mt-auto">
-            <h5 class="card-title dark-blue">
-              <b>{{ type.Arcade | titlecase }}</b>
-            </h5>
-            <p class="card-text text-secondary">
-              <b>${{ price.Arcade }}/mo</b>
-            </p>
-          </div>
-          <div *ngIf="yearlyPlan.value" class="mt-auto">
-            <h5 class="card-title dark-blue">
-              <b>{{ type.Arcade | titlecase }}</b>
-            </h5>
-            <p class="card-text text-secondary">
-              <b>${{ price.ArcadeYearly }}/yr</b>
-            </p>
-            <p class="dark-blue">2 months free</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-4" (click)="choosePlan(type.Advanced)">
-      <div
-        id="card2"
-        class="card plan-card"
-        [ngClass]="{
-          'selected-card': planType.value === type.Advanced
-        }"
-      >
-        <img
-          src="../../../../assets/icon-advanced.svg"
-          class="card-img-top card-img-custom"
-          alt="advanced-plan"
-        />
-        <div class="card-body d-flex h-100">
-          <div *ngIf="!yearlyPlan.value" class="mt-auto">
-            <h5 class="card-title dark-blue">
-              <b>{{ type.Advanced | titlecase }}</b>
-            </h5>
-            <p class="card-text text-secondary">
-              <b>${{ price.Advanced }}/mo</b>
-            </p>
-          </div>
-          <div *ngIf="yearlyPlan.value" class="mt-auto">
-            <h5 class="card-title dark-blue">
-              <b>{{ type.Advanced | titlecase }}</b>
-            </h5>
-            <p class="card-text text-secondary">
-              <b>${{ price.AdvancedYearly }}/yr</b>
-            </p>
-            <p class="dark-blue">2 months free</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-4 pe-0" (click)="choosePlan(type.Pro)">
-      <div
-        id="card3"
-        class="card plan-card"
-        [ngClass]="{
-          'selected-card': planType.value === type.Pro
-        }"
-      >
-        <img
-          src="../../../../assets/icon-pro.svg"
-          class="card-img-top card-img-custom"
-          alt="pro-plan"
-        />
-        <div class="card-body d-flex h-100">
-          <div *ngIf="!yearlyPlan.value" class="mt-auto">
-            <h5 class="card-title dark-blue">
-              <b>{{ type.Pro | titlecase }}</b>
-            </h5>
-            <p class="card-text text-secondary">
-              <b>${{ price.Pro }}/mo</b>
-            </p>
-          </div>
-          <div *ngIf="yearlyPlan.value" class="mt-auto">
-            <h5 class="card-title dark-blue">
-              <b>{{ type.Pro | titlecase }}</b>
-            </h5>
-            <p class="card-text text-secondary">
-              <b>${{ price.ProYearly }}/yr</b>
-            </p>
-            <p class="dark-blue">2 months free</p>
-          </div>
-        </div>
-      </div>
+    <div *ngFor="let planName of planNames | keyvalue" class="col-4">
+      <app-card
+        [planName]="planName.value"
+        [planPrice]="
+          !yearlyPlan.value
+            ? price[planName.value]
+            : price[planName.value + 'Yearly']
+        "
+        [imageSrc]="imageSrc[planName.value]"
+        [isYearlyPlan]="yearlyPlan.value"
+      ></app-card>
     </div>
     <div *ngIf="planType.getError('empty')" class="text-danger mt-1">
       You must choose a plan
