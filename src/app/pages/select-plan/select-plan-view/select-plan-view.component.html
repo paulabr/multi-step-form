@@ -6,8 +6,14 @@
     </h5>
   </div>
   <div class="row mt-5 w-100">
-    <div class="col-4" (click)="choosePlan(type.Arcade, 'card1')">
-      <div id="card1" class="card plan-card">
+    <div class="col-4" (click)="choosePlan(type.Arcade)">
+      <div
+        id="card1"
+        class="card plan-card"
+        [ngClass]="{
+          'selected-card': planType.value === type.Arcade
+        }"
+      >
         <img
           src="../../../../assets/icon-arcade.svg"
           class="card-img-top card-img-custom"
@@ -34,8 +40,14 @@
         </div>
       </div>
     </div>
-    <div class="col-4" (click)="choosePlan(type.Advanced, 'card2')">
-      <div id="card2" class="card plan-card">
+    <div class="col-4" (click)="choosePlan(type.Advanced)">
+      <div
+        id="card2"
+        class="card plan-card"
+        [ngClass]="{
+          'selected-card': planType.value === type.Advanced
+        }"
+      >
         <img
           src="../../../../assets/icon-advanced.svg"
           class="card-img-top card-img-custom"
@@ -62,8 +74,14 @@
         </div>
       </div>
     </div>
-    <div class="col-4 pe-0" (click)="choosePlan(type.Pro, 'card3')">
-      <div id="card3" class="card plan-card">
+    <div class="col-4 pe-0" (click)="choosePlan(type.Pro)">
+      <div
+        id="card3"
+        class="card plan-card"
+        [ngClass]="{
+          'selected-card': planType.value === type.Pro
+        }"
+      >
         <img
           src="../../../../assets/icon-pro.svg"
           class="card-img-top card-img-custom"

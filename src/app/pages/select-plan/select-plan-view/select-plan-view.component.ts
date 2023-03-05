@@ -42,8 +42,7 @@ export class SelectPlanViewComponent implements OnInit {
     return this.plan.get("yearlyPlan") as FormControl;
   }
 
-  choosePlan(planType: Type, id: string) {
-    this.selectCard(id);
+  choosePlan(planType: Type) {
     this.planType.patchValue(planType);
     if (this.yearlyPlan.value) {
       const price = Price[`${planType}Yearly`];
@@ -51,14 +50,6 @@ export class SelectPlanViewComponent implements OnInit {
     } else {
       this.planPrice.patchValue(Price[planType]);
     }
-  }
-
-  private selectCard(id: string) {
-    const cards = document.getElementsByClassName("card plan-card");
-    Array.from(cards).forEach((card) => {
-      card.classList.remove("selected-card");
-    });
-    document.getElementById(id).classList.add("selected-card");
   }
 
   goToAddOns() {
