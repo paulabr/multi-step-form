@@ -6,8 +6,6 @@ import { Router } from "@angular/router";
   providedIn: "root",
 })
 export class NavigationService {
-  constructor(private router: Router) {}
-
   allSteps = new FormGroup({
     personalInfo: new FormGroup({
       name: new FormControl("", [Validators.required]),
@@ -27,6 +25,8 @@ export class NavigationService {
     }),
     addOns: new FormArray([], [Validators.required]),
   });
+
+  constructor(private router: Router) {}
 
   get personalInfo(): FormGroup {
     return this.allSteps.get("personalInfo") as FormGroup;

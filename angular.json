@@ -103,5 +103,8 @@
       }
     }
   },
-  "defaultProject": "multi-step-form"
+  "defaultProject": "multi-step-form",
+  "cli": {
+    "analytics": "80533f24-d24d-4d1d-a6bd-3c45aa0b279c"
+  }
 }

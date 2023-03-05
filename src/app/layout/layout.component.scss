@@ -1,13 +1,16 @@
-.row-container {
-  height: 100%;
-  width: 100%;
-}
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 
 .content-margin {
-  margin-top: 6rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 6rem;
+  padding-top: 6rem;
+  padding-left: auto;
+  padding-right: auto;
+  padding-bottom: 6rem;
+  @include media-breakpoint-down(md) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 }
 
 #navbar-mobile {
