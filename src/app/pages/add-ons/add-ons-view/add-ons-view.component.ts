@@ -11,11 +11,14 @@ import { AddOnPrices, AddOnPricesYearly } from "../add-ons-util/add-on-prices";
   styleUrls: ["./add-ons-view.component.scss"],
 })
 export class AddOnsViewComponent {
-  allSteps: FormGroup;
   addOnNames = AddOnNamesValues;
   addOnDescriptions = AddOnDescriptions;
   prices = AddOnPrices;
   yearlyPrices = AddOnPricesYearly;
+
+  get allSteps(): FormGroup {
+    return this.navigationService.allSteps as FormGroup;
+  }
 
   get addOns(): FormArray {
     return this.navigationService.allSteps.get("addOns") as FormArray;
