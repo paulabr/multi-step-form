@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { FormArray, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { AddOnNamesValues } from "../pages/add-ons/add-ons-util/add-on-names";
 
 @Injectable({
   providedIn: "root",
@@ -22,7 +23,10 @@ export class NavigationService {
       planType: new FormControl("", [Validators.required]),
       yearlyPlan: new FormControl(false),
     }),
-    addOns: new FormArray([], [Validators.required]),
+    addOns: new FormArray(
+      [...AddOnNamesValues.map(() => new FormControl(false))],
+      [Validators.required]
+    ),
   });
 
   constructor(private router: Router) {

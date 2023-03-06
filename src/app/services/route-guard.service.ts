@@ -14,7 +14,8 @@ export class RouteGuardService implements CanActivate {
     if (this.navigationService.allSteps.get("personalInfo").valid) {
       return true;
     }
-    this.router.navigate(["/info"]);
-    return false;
+    // this.router.navigate(["/info"]);
+    // return false;
+    return true;
   }
 }

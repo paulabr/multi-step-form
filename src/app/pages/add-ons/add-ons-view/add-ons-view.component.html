@@ -4,112 +4,17 @@
     <h5 class="text-secondary">Add-ons help enhance your game experience.</h5>
   </div>
 
-  <div class="card-group mt-5 w-100">
+  <div [formGroup]="allSteps" class="card-group mt-5 w-100">
     <div class="w-100">
-      <div class="card mb-4 plan-card w-100">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-10 d-flex">
-              <div class="form-check mt-3 me-3">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value="online service"
-                  id="flexCheckDefault1"
-                />
-              </div>
-              <div>
-                <h5 class="card-title dark-blue"><b>Online service</b></h5>
-                <p class="card-text text-secondary">
-                  Access to multiplayer games
-                </p>
-              </div>
-            </div>
-            <label
-              *ngIf="!yearlyPlan.value"
-              for="flexCheckDefault1"
-              class="mt-3 col-2 price"
-              ><b>+$1/mo</b></label
-            >
-            <label
-              *ngIf="yearlyPlan.value"
-              for="flexCheckDefault1"
-              class="mt-3 col-2 price"
-              ><b>+$10/yr</b></label
-            >
-          </div>
-        </div>
-      </div>
-
-      <div class="card mb-4 plan-card w-100">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-10 d-flex">
-              <div class="form-check mt-3 me-3">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value="larger store"
-                  id="flexCheckDefault2"
-                />
-              </div>
-              <div>
-                <h5 class="card-title dark-blue"><b>Larger storage</b></h5>
-                <p class="card-text text-secondary">Extra 1TB of cloud save</p>
-              </div>
-            </div>
-
-            <label
-              *ngIf="!yearlyPlan.value"
-              for="flexCheckDefault2"
-              class="mt-3 col-2 price"
-              ><b>+$2/mo</b></label
-            >
-            <label
-              *ngIf="yearlyPlan.value"
-              for="flexCheckDefault2"
-              class="mt-3 col-2 price"
-              ><b>+$20/yr</b></label
-            >
-          </div>
-        </div>
-      </div>
-
-      <div class="card plan-card w-100">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-10 d-flex">
-              <div class="form-check mt-3 me-3">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value="customizable profile"
-                  id="flexCheckDefault3"
-                />
-              </div>
-              <div>
-                <h5 class="card-title dark-blue">
-                  <b>Customizable profile</b>
-                </h5>
-                <p class="card-text text-secondary">
-                  Custom theme on your profile
-                </p>
-              </div>
-            </div>
-
-            <label
-              *ngIf="!yearlyPlan.value"
-              for="flexCheckDefault3"
-              class="mt-3 col-2 price"
-              ><b>+$2/mo</b></label
-            >
-            <label
-              *ngIf="yearlyPlan.value"
-              for="flexCheckDefault3"
-              class="mt-3 col-2 price"
-              ><b>+$20/yr</b></label
-            >
-          </div>
+      <div formArrayName="addOns">
+        <div *ngFor="let addOn of addOns.controls; let i = index">
+          <app-add-on-picker
+            [yearlyPlan]="yearlyPlan.value"
+            [name]="addOnNames[i]"
+            [description]="addOnDescriptions[i]"
+            [price]="yearlyPlan.value ? yearlyPrices[i] : prices[i]"
+            [checked]="addOn"
+          ></app-add-on-picker>
         </div>
       </div>
     </div>

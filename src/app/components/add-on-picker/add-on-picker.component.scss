@@ -1,0 +1,18 @@
+.form-check-input:checked {
+  background-color: hsl(243, 100%, 62%);
+  border-color: hsl(243, 100%, 62%);
+}
+
+.form-check-input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.card:hover {
+  border-color: hsl(243, 100%, 62%);
+}
+
+.price {
+  color: hsl(243, 100%, 62%);
+}

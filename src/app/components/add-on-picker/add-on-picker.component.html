@@ -1,0 +1,27 @@
+<div class="card mb-4 plan-card w-100">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-10 d-flex">
+        <div class="form-check mt-3 me-3">
+          <input
+            [formControl]="checked"
+            class="form-check-input"
+            type="checkbox"
+            value="online service"
+            id="flexCheckDefault1"
+          />
+        </div>
+        <div>
+          <h5 class="card-title dark-blue">
+            <b>{{ name }}</b>
+          </h5>
+          <p class="card-text text-secondary">{{ description }}</p>
+        </div>
+      </div>
+      <label for="flexCheckDefault1" class="mt-3 col-2 price">
+        <b *ngIf="!yearlyPlan">+${{ price }}/mo</b>
+        <b *ngIf="yearlyPlan">+${{ price }}/yr</b>
+      </label>
+    </div>
+  </div>
+</div>
