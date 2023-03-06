@@ -61,7 +61,6 @@
         <div class="text-light"><b>ADD-ONS</b></div>
       </div>
     </div>
-
     <div class="d-flex">
       <div (click)="goToSummary()" class="mt-5 ms-3">
         <input
@@ -71,7 +70,7 @@
           id="btnradio4"
           autocomplete="off"
           [checked]="router.url === routes.summary"
-          [disabled]="navigationService.addOns.value.length === 0"
+          [disabled]="!navigationService.addOns.valid"
         />
         <label class="btn btn-outline-light round-button mt-1" for="btnradio4"
           >4</label

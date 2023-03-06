@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormArray, FormGroup } from "@angular/forms";
 import { NavigationService } from "src/app/services/navigation.service";
-import { AddOnNamesValues } from "../../add-ons/add-ons-util/add-on-names";
+import { AddOnNamesValues } from "../../add-ons/add-on-names";
 import {
   AddOnPrices,
   AddOnPricesYearly,

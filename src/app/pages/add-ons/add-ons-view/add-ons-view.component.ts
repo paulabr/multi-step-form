@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
 import { FormArray, FormControl, FormGroup } from "@angular/forms";
 import { NavigationService } from "src/app/services/navigation.service";
-import { AddOnDescriptions } from "../add-ons-util/add-on-descriptions";
-import { AddOnNamesValues } from "../add-ons-util/add-on-names";
+import { AddOnDescriptions } from "../add-on-descriptions";
+import { AddOnNamesValues } from "../add-on-names";
 import { AddOnPrices, AddOnPricesYearly } from "../add-ons-util/add-on-prices";
 
 @Component({
@@ -15,6 +15,7 @@ export class AddOnsViewComponent {
   addOnDescriptions = AddOnDescriptions;
   prices = AddOnPrices;
   yearlyPrices = AddOnPricesYearly;
+  addOnsArray: FormArray;
 
   get allSteps(): FormGroup {
     return this.navigationService.allSteps as FormGroup;
@@ -27,7 +28,6 @@ export class AddOnsViewComponent {
   get yearlyPlan(): FormControl {
     return this.navigationService.plan.get("yearlyPlan") as FormControl;
   }
-
   constructor(private navigationService: NavigationService) {}
 
   goToSummary() {

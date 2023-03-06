@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
 import { FormArray, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
-import { AddOnNamesValues } from "../pages/add-ons/add-ons-util/add-on-names";
+import { AddOnNamesValues } from "../pages/add-ons/add-on-names";
+import { atLeastOneCheckboxIsChecked } from "./atLeastOneCheckboxIsChecked";
 
 @Injectable({
   providedIn: "root",
@@ -25,7 +26,7 @@ export class NavigationService {
     }),
     addOns: new FormArray(
       [...AddOnNamesValues.map(() => new FormControl(false))],
-      [Validators.required]
+      [atLeastOneCheckboxIsChecked()]
     ),
   });
 
