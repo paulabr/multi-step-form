@@ -20,13 +20,16 @@ export class NavigationService {
     }),
     plan: new FormGroup({
       planType: new FormControl("", [Validators.required]),
-      planPrice: new FormControl("", [Validators.required]),
       yearlyPlan: new FormControl(false),
     }),
     addOns: new FormArray([], [Validators.required]),
   });
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this.allSteps.valueChanges.subscribe((val) => {
+      console.log(val);
+    });
+  }
 
   get personalInfo(): FormGroup {
     return this.allSteps.get("personalInfo") as FormGroup;

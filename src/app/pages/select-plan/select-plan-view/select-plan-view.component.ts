@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { NavigationService } from "src/app/services/navigation.service";
-import { CardImage } from "../../../components/card/card-image.enum";
+import { CardImage } from "../card-image.enum";
 import { PlanName } from "../plan-name.enum";
 import { PlanPrice } from "../plan-price.enum";
 
@@ -32,16 +32,6 @@ export class SelectPlanViewComponent implements OnInit {
   get yearlyPlan(): FormControl {
     return this.plan.get("yearlyPlan") as FormControl;
   }
-
-  // choosePlan(planType: Type) {
-  //   this.planType.patchValue(planType);
-  //   if (this.yearlyPlan.value) {
-  //     const price = Price[`${planType}Yearly`];
-  //     this.planPrice.patchValue(price);
-  //   } else {
-  //     this.planPrice.patchValue(Price[planType]);
-  //   }
-  // }
 
   goToAddOns() {
     this.navigationService.navigateToAddOns();

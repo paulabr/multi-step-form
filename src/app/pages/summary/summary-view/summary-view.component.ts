@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormArray, FormGroup } from "@angular/forms";
 import { NavigationService } from "src/app/services/navigation.service";
+import { PlanPrice } from "../../select-plan/plan-price.enum";
 
 @Component({
   selector: "app-summary-view",
@@ -24,8 +25,10 @@ export class SummaryViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.planType = this.plan.get("planType").value;
-    this.planPrice = this.plan.get("planPrice").value;
     this.yearlyPlan = this.plan.get("yearlyPlan").value;
+    this.planPrice = this.yearlyPlan
+      ? PlanPrice[`${this.planType}Yearly`]
+      : PlanPrice[this.planType];
     this.totalPrice = this.getTotalPrice();
   }
 

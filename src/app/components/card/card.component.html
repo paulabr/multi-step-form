@@ -1,4 +1,11 @@
-<div id="card1" class="card plan-card">
+<div
+  id="card"
+  class="card plan-card"
+  (click)="selectCard(planName)"
+  [ngClass]="{
+    'selected-card': isCardSelected()
+  }"
+>
   <img
     src="{{ imageSrc }}"
     class="card-img-top card-img-custom"
@@ -10,9 +17,13 @@
         <b>{{ planName | titlecase }}</b>
       </h5>
       <p class="card-text text-secondary">
-        <b>${{ planPrice }}/mo</b>
+        <b
+          >${{
+            !yearlyPlan.value ? price[planName] : price[planName + "Yearly"]
+          }}/mo</b
+        >
       </p>
-      <p *ngIf="isYearlyPlan" class="dark-blue">2 months free</p>
+      <p *ngIf="yearlyPlan.value" class="dark-blue">2 months free</p>
     </div>
   </div>
 </div>
