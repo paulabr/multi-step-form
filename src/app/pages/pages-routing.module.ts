@@ -28,6 +28,14 @@ const routes: Routes = [
     loadChildren: () =>
       import("./summary/summary.module").then((m) => m.SummaryModule),
   },
+  {
+    path: "thank-you",
+    // canActivate: [RouteGuardService],
+    loadChildren: () =>
+      import("./thank-you/thank-you-routing.module").then(
+        (m) => m.ThankYouRoutingModule
+      ),
+  },
   { path: "**", redirectTo: "not-found" },
   {
     path: "not-found",
